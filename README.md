@@ -9,4 +9,5 @@ npx express-generator --no-view auth-express
 npm i -D prettier
 npm i nodemon
 npm i dotenv
+npm i cors
 ```
