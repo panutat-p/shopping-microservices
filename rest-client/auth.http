@@ -1,0 +1,8 @@
+GET localhost:4000/api/v1/users
+###
+
+POST localhost:4000/api/v1/users/register
+###
+
+POST localhost:4000/api/v1/users/login
+###
