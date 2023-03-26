@@ -41,7 +41,11 @@ router.post('/register', async function (req, res, next) {
       },
     });
   } catch (e) {
-    console.log('🟥 register, err:', e);
+    if (e?.name === 'SequelizeUniqueConstraintError') {
+      return res.status(400).json({
+        message: 'This Email is already used.',
+      });
+    }
     return res.status(500).json({
       message: 'Failure',
       error: e,
