@@ -11,7 +11,7 @@ opts.secretOrKey = process.env.JWT_SECRET;
 passport.use(
   new JwtStrategy(opts, async function (jwt_payload, done) {
     try {
-      const user = { user_id: jwt_payload.user_id };
+      const user = { user_id: jwt_payload.user_id, role: jwt_payload.role };
       if (user) {
         return done(null, user); // modify the request object
       }

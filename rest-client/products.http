@@ -3,7 +3,7 @@ Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb
 ###
 
 GET localhost:4001/api/v1/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNjc5ODE1NzEzLCJleHAiOjE2Nzk4MzAxMTN9.wqVOUdb8L10wgxADNzzqicEGcQ7N3HAtE9ZWd8jzJGo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Nzk4MjE5MzAsImV4cCI6MTY3OTgzNjMzMH0.PHduSQaD1EpT53vziOhGgvebbfuOXAvQYOKCqY-9wKc
 Content-Type: application/json
 
 {
@@ -23,4 +23,3 @@ Content-Type: application/json
 }
 
 ###
-

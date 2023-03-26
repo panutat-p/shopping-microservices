@@ -1,9 +1,10 @@
 const express = require('express');
 const passportJWT = require('../middlewares/passport-jwt');
+const checkAdmin = require('../middlewares/check-admin');
 
 const router = express.Router();
 
-router.get('/', [passportJWT.isLogin], async function (req, res, next) {
+router.get('/', [passportJWT.isLogin, checkAdmin.checkAdminRole], async function (req, res, next) {
   console.log('/api/v1/products');
   try {
     return res.status(200).json({
