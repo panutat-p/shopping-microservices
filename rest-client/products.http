@@ -1,0 +1,26 @@
+GET localhost:4001/api/v1/products/12
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNjc5ODE1NzEzLCJleHAiOjE2Nzk4MzAxMTN9.wqVOUdb8L10wgxADNzzqicEGcQ7N3HAtE9ZWd8jzJGo
+###
+
+GET localhost:4001/api/v1/products
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNjc5ODE1NzEzLCJleHAiOjE2Nzk4MzAxMTN9.wqVOUdb8L10wgxADNzzqicEGcQ7N3HAtE9ZWd8jzJGo
+Content-Type: application/json
+
+{
+  "category": "food"
+}
+
+###
+
+GET localhost:4001/api/v1/products/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNjc5ODE1NzEzLCJleHAiOjE2Nzk4MzAxMTN9.wqVOUdb8L10wgxADNzzqicEGcQ7N3HAtE9ZWd8jzJGo
+Content-Type: application/json
+
+{
+  "category": "food",
+  "name": "pumpkin",
+  "price": 24
+}
+
+###
+

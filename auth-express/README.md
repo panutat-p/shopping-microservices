@@ -17,7 +17,9 @@ https://www.passportjs.org/packages/passport-jwt
 ```shell
 npx express-generator --no-view auth-express
 npm i -D prettier
-npm i nodemon
+npm i -D nodemon
+npm i express
+npm i cookie-parser
 npm i dotenv
 npm i cors
 npm i mysql2
