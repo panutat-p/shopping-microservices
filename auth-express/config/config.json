@@ -1,7 +1,7 @@
 {
   "development": {
     "username": "root",
-    "password": "Admin_1jj395qu",
+    "password": "",
     "database": "p_db",
     "host": "178.128.57.228",
     "port": "3306",
