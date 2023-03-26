@@ -1,6 +1,7 @@
 const express = require('express');
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
+const passportJWT = require('../middlewares/passport-jwt');
 
 const User = require('../models/user');
 
@@ -12,13 +13,22 @@ router.get('/', function (req, res, next) {
   });
 });
 
-router.get('/profile', function (req, res, next) {
-  return res.status(200).json({
-    message: {
-      name: 'Monkey',
-      email: 'monkey@gmail.com',
-    },
-  });
+router.get('/profile', [passportJWT.isLogin], async function (req, res, next) {
+  try {
+    const user = await User.findByPk(req.user.user_id);
+    return res.status(200).json({
+      profile: {
+        full_name: user.full_name,
+        email: user.email,
+        role: user.role,
+      },
+    });
+  } catch (e) {
+    return res.status(500).json({
+      message: 'Failure',
+      error: e,
+    });
+  }
 });
 
 router.post('/register', async function (req, res, next) {
