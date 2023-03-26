@@ -1,9 +1,10 @@
 {
   "development": {
     "username": "root",
-    "password": null,
-    "database": "database_development",
-    "host": "127.0.0.1",
+    "password": "Admin_1jj395qu",
+    "database": "p_db",
+    "host": "178.128.57.228",
+    "port": "3306",
     "dialect": "mysql"
   },
   "test": {
