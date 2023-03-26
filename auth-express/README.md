@@ -10,6 +10,10 @@ https://github.com/sidorares/node-mysql2
 
 https://sequelize.org/docs/v6/getting-started
 
+https://github.com/auth0/node-jsonwebtoken
+
+https://www.passportjs.org/packages/passport-jwt
+
 ```shell
 npx express-generator --no-view auth-express
 npm i -D prettier
@@ -24,6 +28,7 @@ npx sequelize-cli model:generate --name user --attributes fullName:string,email:
 npx sequelize-cli db:migrate
 npm i argon2
 npm i jsonwebtoken
+npm i passport passport-jwt
 ```
 
 ## Guides
