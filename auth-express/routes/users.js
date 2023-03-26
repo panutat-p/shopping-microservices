@@ -7,6 +7,16 @@ router.get('/', function (req, res, next) {
     message: 'User',
   });
 });
+
+router.get('/profile', function (req, res, next) {
+  return res.status(200).json({
+    message: {
+      name: 'Monkey',
+      email: 'monkey@gmail.com',
+    },
+  });
+});
+
 router.post('/register', function (req, res, next) {
   return res.status(200).json({
     message: 'Register successfully',
