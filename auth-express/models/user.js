@@ -1,11 +1,10 @@
-const { Sequelize, DataTypes } = require('sequelize');
-
-const sequelize = new Sequelize('sqlite::memory:');
+const { DataTypes } = require('sequelize');
+const sequelize = require('../stores/mysql');
 
 const User = sequelize.define(
   'User',
   {
-    firstName: {
+    full_name: {
       type: DataTypes.STRING,
     },
     email: {
@@ -24,7 +23,9 @@ const User = sequelize.define(
     },
   },
   {
-    timestamps: true,
-    tableName: 'users',
+    timestamps: false,
+    tableName: 'user',
   }
 );
+
+module.exports = User;

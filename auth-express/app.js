@@ -1,4 +1,6 @@
 const dotenv = require('dotenv');
+dotenv.config();
+
 const express = require('express');
 const cors = require('cors');
 const path = require('path');
@@ -8,7 +10,12 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-dotenv.config();
+if (process.env.NAME !== 'auth-express') {
+  process.exit(1);
+}
+
+console.log('ENV:name:', process.env.NAME);
+
 const app = express();
 
 app.use(cors());

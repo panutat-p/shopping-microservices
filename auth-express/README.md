@@ -22,6 +22,7 @@ npm i -D sequelize-cli
 npx sequelize-cli init
 npx sequelize-cli model:generate --name user --attributes fullName:string,email:string,password:string
 npx sequelize-cli db:migrate
+npm i argon2
 ```
 
 ## Guides
