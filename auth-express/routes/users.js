@@ -1,5 +1,6 @@
 const express = require('express');
 const argon2 = require('argon2');
+const jwt = require('jsonwebtoken');
 
 const User = require('../models/user');
 
@@ -21,7 +22,6 @@ router.get('/profile', function (req, res, next) {
 });
 
 router.post('/register', async function (req, res, next) {
-  console.log('🟨', req.body);
   const { fullName, email, password } = req.body;
 
   const hash = await argon2.hash(password);
@@ -53,9 +53,41 @@ router.post('/register', async function (req, res, next) {
   }
 });
 
-router.post('/login', function (req, res, next) {
+router.post('/login', async function (req, res, next) {
+  const { email, password } = req.body;
+  let user;
+
+  try {
+    user = await User.findOne({ where: { email: email } });
+    if (user === null) {
+      return res.status(404).json({
+        message: 'User not found',
+      });
+    }
+  } catch (e) {
+    return res.status(500).json({
+      message: 'Failure',
+      error: e,
+    });
+  }
+
+  try {
+    const isValid = await argon2.verify(user.password, password);
+    if (!isValid) {
+      return res.status(401).json({
+        message: 'Not authorized',
+      });
+    }
+  } catch (e) {
+    return res.status(500).json({
+      message: 'Failure',
+      error: e,
+    });
+  }
+
   return res.status(200).json({
-    message: 'token',
+    message: 'Authorized',
+    access_token: jwt.sign({ user_id: user.id, role: user.role }, process.env.JWT_SECRET, { expiresIn: '4h' }),
   });
 });
 
