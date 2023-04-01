@@ -4,6 +4,7 @@ import (
 	"fmt"
 	"os"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
 )
@@ -17,9 +18,8 @@ func main() {
 
 	gin.SetMode(os.Getenv("GIN_MODE"))
 	r := gin.Default()
-	r.GET("ping", PingPong)
-	v1 := r.Group("/api/v1")
-	InitRoutes(v1)
+	r.Use(cors.Default()) // allow all
+	InitRoutes(r)
 
 	err = r.Run(":" + os.Getenv("PORT"))
 	if err != nil {

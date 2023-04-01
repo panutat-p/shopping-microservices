@@ -10,6 +10,7 @@ air
 go get github.com/joho/godotenv
 go install github.com/cosmtrek/air@latest
 go get -u github.com/gin-gonic/gin
+go get github.com/gin-contrib/cors
 ```
 
 ## Guides
