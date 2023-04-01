@@ -15,6 +15,7 @@ dist
 dist-ssr
 *.local
 
+*/tmp
 *.exe
 *.exe~
 *.dll
