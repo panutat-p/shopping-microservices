@@ -1,9 +1,9 @@
 GET localhost:4001/api/v1/products/12
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNjc5ODE1NzEzLCJleHAiOjE2Nzk4MzAxMTN9.wqVOUdb8L10wgxADNzzqicEGcQ7N3HAtE9ZWd8jzJGo
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAzMTY3NDgsImV4cCI6MTY4MDMzMTE0OH0.AC6CzEvaWwOj0IIp5o8-epQ43wvjWHUcCTy6qcQfJJk
 ###
 
 GET localhost:4001/api/v1/products
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2Nzk4MjE5MzAsImV4cCI6MTY3OTgzNjMzMH0.PHduSQaD1EpT53vziOhGgvebbfuOXAvQYOKCqY-9wKc
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAzMTY3NDgsImV4cCI6MTY4MDMzMTE0OH0.AC6CzEvaWwOj0IIp5o8-epQ43wvjWHUcCTy6qcQfJJk
 Content-Type: application/json
 
 {
@@ -12,14 +12,14 @@ Content-Type: application/json
 
 ###
 
-GET localhost:4001/api/v1/products/add
-Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoibWVtYmVyIiwiaWF0IjoxNjc5ODE1NzEzLCJleHAiOjE2Nzk4MzAxMTN9.wqVOUdb8L10wgxADNzzqicEGcQ7N3HAtE9ZWd8jzJGo
+POST localhost:4001/api/v1/products/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAzMTY3NDgsImV4cCI6MTY4MDMzMTE0OH0.AC6CzEvaWwOj0IIp5o8-epQ43wvjWHUcCTy6qcQfJJk
 Content-Type: application/json
 
 {
-  "category": "food",
-  "name": "pumpkin",
-  "price": 24
+  "product_id": 1,
+  "product_name": "banana",
+  "product_price": "6"
 }
 
 ###

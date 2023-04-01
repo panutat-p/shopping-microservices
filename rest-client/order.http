@@ -3,3 +3,16 @@ GET http://localhost:4002/ping
 
 GET http://localhost:4002/api/v1/orders
 ###
+
+POST http://localhost:4002/api/v1/orders/add
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ1c2VyX2lkIjoxLCJyb2xlIjoiYWRtaW4iLCJpYXQiOjE2ODAzMzI3MTksImV4cCI6MTY4MDM0NzExOX0.Z0Y2TJ5doASZ7bE5PCsQjZn0d8XHUDGLHAnS1ov3G9g
+Content-Type: application/json
+
+{
+  "product_id": [
+		1,
+		2,
+		3
+	]
+}
+###
