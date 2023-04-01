@@ -2,9 +2,10 @@ package main
 
 import (
 	"fmt"
+	"os"
+
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
-	"os"
 )
 
 func main() {
@@ -16,8 +17,9 @@ func main() {
 
 	gin.SetMode(os.Getenv("GIN_MODE"))
 	r := gin.Default()
-	r.GET("/ping", PingPong)
-	r.GET("/api/v1/orders", ListOrders)
+	r.GET("ping", PingPong)
+	v1 := r.Group("/api/v1")
+	InitRoutes(v1)
 
 	err = r.Run(":" + os.Getenv("PORT"))
 	if err != nil {
