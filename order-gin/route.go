@@ -9,5 +9,5 @@ func InitRoutes(r *gin.Engine) {
 	// api/v1
 	v1 := r.Group("/api/v1")
 	v1.GET("/orders", ListOrders)
-	v1.POST("/orders/add", AddNewOrder)
+	v1.POST("/orders/add", IsLogIn, AddNewOrder)
 }

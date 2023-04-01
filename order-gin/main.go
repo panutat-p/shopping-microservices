@@ -15,6 +15,7 @@ func main() {
 		fmt.Println("🟥 Failed load ENV, err:", err)
 		os.Exit(1)
 	}
+	fmt.Println("JWT_SECRET", os.Getenv("JWT_SECRET"))
 
 	gin.SetMode(os.Getenv("GIN_MODE"))
 	r := gin.Default()
