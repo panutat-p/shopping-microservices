@@ -11,6 +11,7 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 if (process.env.NAME !== 'auth-express') {
+  console.log('🟥 Failed to load ENV');
   process.exit(1);
 }
 

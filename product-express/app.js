@@ -11,7 +11,8 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const productRouter = require('./routes/products');
 
-if (process.env.NAME !== 'auth-express') {
+if (process.env.NAME !== 'product-express') {
+  console.log('🟥 Failed to load ENV');
   process.exit(1);
 }
 
