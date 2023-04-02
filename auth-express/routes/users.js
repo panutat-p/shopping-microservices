@@ -1,9 +1,10 @@
 const express = require('express');
 const argon2 = require('argon2');
 const jwt = require('jsonwebtoken');
-const passportJWT = require('../middlewares/passport-jwt');
 
+const passportJWT = require('../middlewares/passport-jwt');
 const User = require('../models/user');
+const connectRabbitMQ = require('../stores/rabbit-mq');
 
 const router = express.Router();
 
@@ -42,7 +43,18 @@ router.post('/register', async function (req, res, next) {
       email: email,
       password: hash,
     });
-    return res.status(200).json({
+    const channel = await connectRabbitMQ();
+    await channel.assertExchange('ex.p.fanout', 'fanout', { durable: true });
+    await channel.assertQueue('q.p.product.service', { durable: true });
+    await channel.bindQueue('q.p.product.service', 'ex.p.fanout', '');
+    channel.publish('ex.p.fanout', '', Buffer.from(JSON.stringify(newUser)), {
+      contentType: 'application/json',
+      contentEncoding: 'utf-8',
+      type: 'UserCreated',
+      persistent: true,
+    });
+
+    return res.status(201).json({
       message: 'Register successfully',
       user: {
         id: newUser.id,
