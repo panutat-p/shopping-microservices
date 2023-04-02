@@ -2,12 +2,12 @@ package main
 
 import (
 	"fmt"
-	"gorm.io/gorm"
 	"os"
 
 	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 	"github.com/joho/godotenv"
+	"gorm.io/gorm"
 )
 
 var gormDB *gorm.DB
@@ -28,6 +28,7 @@ func main() {
 		os.Getenv("POSTGRES_PORT"),
 	)
 	gormDB = ConnectDB(dsn)
+	InitRabbitMQConsumer(os.Getenv("RABBIT_MQ_URL"))
 
 	gin.SetMode(os.Getenv("GIN_MODE"))
 	r := gin.Default()
