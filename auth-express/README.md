@@ -31,6 +31,7 @@ npx sequelize-cli db:migrate
 npm i argon2
 npm i jsonwebtoken
 npm i passport passport-jwt
+npm i amqplib amqp-connection-manager
 ```
 
 ## Guides
