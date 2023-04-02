@@ -43,10 +43,15 @@ router.post('/register', async function (req, res, next) {
       email: email,
       password: hash,
     });
+    // TODO connect at main
     const channel = await connectRabbitMQ();
     await channel.assertExchange('ex.p.fanout', 'fanout', { durable: true });
+    // publish to product service
     await channel.assertQueue('q.p.product.service', { durable: true });
     await channel.bindQueue('q.p.product.service', 'ex.p.fanout', '');
+    // publish to order service
+    await channel.assertQueue('q.p.order.service', { durable: true });
+    await channel.bindQueue('q.p.order.service', 'ex.p.fanout', '');
     channel.publish('ex.p.fanout', '', Buffer.from(JSON.stringify(newUser)), {
       contentType: 'application/json',
       contentEncoding: 'utf-8',
