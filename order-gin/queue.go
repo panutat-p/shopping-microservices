@@ -40,16 +40,16 @@ func InitRabbitMQConsumer(url string) {
 
 	go func() {
 		for d := range msg {
-			fmt.Printf("Received a message: %s", d.Body)
-			fmt.Printf("Done")
-			err := d.Ack(true)
-			if err != nil {
-				fmt.Printf("🟧 Failed to ACK")
-				return
-			}
+			fmt.Printf("Received a message: %s\n", d.Body)
+			fmt.Println("Done")
+			//err := d.Ack(true)
+			//if err != nil {
+			//	fmt.Println("🟧 Failed to ACK")
+			//	return
+			//}
 		}
 	}()
 
-	fmt.Printf("Waiting for messages")
+	fmt.Printf("Waiting for messages\n")
 	<-forever
 }
