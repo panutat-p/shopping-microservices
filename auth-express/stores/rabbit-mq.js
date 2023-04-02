@@ -1,9 +1,9 @@
 const amqp = require('amqp-connection-manager');
 
 async function connectRabbitMQ() {
-  const connection = amqp.connect(process.env.RABBITMQ_URL);
+  const connection = amqp.connect(process.env.RABBIT_MQ_URL);
   connection.on('connect', function () {
-    console.log('RabbitMQ Connected!');
+    console.log('🟩 RabbitMQ Connected!');
   });
   connection.on('disconnect', function (err) {
     console.log('RabbitMQ Disconnected.', err.stack);
