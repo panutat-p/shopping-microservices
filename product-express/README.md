@@ -17,6 +17,7 @@ npm i dotenv
 npm i cors
 npm i mongoose
 npm i passport passport-jwt
+npm i amqplib amqp-connection-manager
 ```
 
 ## Guides
